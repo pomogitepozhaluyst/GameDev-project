@@ -17,15 +17,15 @@ public class TextValueHealthAndButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = player.maxHealth.ToString();
+        text.text = player.stats.maxHealth.ToString();
     }
 
     void healthInc()
     {
-        if (player.pointSkills != 0)
+        if (player.stats.pointSkills != 0)
         {
-            player.maxHealth += 1;
-            player.pointSkills--;
+            player.stats.maxHealth += 1;
+            player.stats.pointSkills--;
 
         }
     }

@@ -18,15 +18,15 @@ public class TextValueAttackAndButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = player.damageMelee.ToString();
+        text.text = player.stats.damageMelee.ToString();
     }
 
     void attackInc()
     {
-        if (player.pointSkills != 0)
+        if (player.stats.pointSkills != 0)
         {
-            player.damageMelee++;
-            player.pointSkills--;
+            player.stats.damageMelee++;
+            player.stats.pointSkills--;
         }
     }
 

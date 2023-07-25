@@ -58,10 +58,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if(item.type == 0)
         {
-            player.currentHealth += 10;
-            if (player.currentHealth < player.maxHealth)
+            player.stats.currentHealth += 10;
+            if (player.stats.currentHealth < player.stats.maxHealth)
             {
-                player.currentHealth = player.maxHealth;
+                player.stats.currentHealth = player.stats.maxHealth;
             }
         }
     }

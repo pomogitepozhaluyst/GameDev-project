@@ -4,74 +4,50 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 1;
-    public int currentHealth = 1;
-    public int level = 1;
-    public int damageMelee = 1;
-    public int damageDistant = 1;
+
+
+    public StatsData stats;
+
     public float fullSpeed = 50.0f;
     public Rigidbody2D rb;
     public Animator animator;
     public string direction = "down";
-    public float baseSpeed = 3.0f;
     public float baseAnimatorSpeed = 1.0f;
     public Transform hitBox;
 
-    public int currentExp = 0;
-    public int needToNextLevelExp = 10;
-
-    public int pointSkills = 0;
 
 
-    public GameObject signPointSkills;
+
 
 
     Vector2 movement;
 
-    public HealthBar healthBar;
-    public ExpBar exphBar;
+  
 
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(maxHealth);
 
-        exphBar.SetMaxExp(needToNextLevelExp);
-        exphBar.SetExp(currentExp);
 
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
+        stats.TakeDamage(damage);
     }
 
     void RecoverHealth(int recover)
     {
-        currentHealth += recover;
+        stats.RecoverHealth(recover);
 
-        healthBar.SetHealth(currentHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (pointSkills == 0)
-        {
-            signPointSkills.SetActive(false);
-        }
-        else
-        {
-            signPointSkills.SetActive(true);
-        }
 
-        exphBar.SetExp(currentExp);
 
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(currentHealth);
+
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -93,15 +69,7 @@ public class Player : MonoBehaviour
         }
 
 
-        while(currentExp >= needToNextLevelExp)
-        {
-            currentExp -= needToNextLevelExp;
-            pointSkills++;
-            needToNextLevelExp *= 2;
-            level++;
-            exphBar.SetMaxExp(needToNextLevelExp);
 
-        }
 
     }
 
@@ -115,7 +83,7 @@ public class Player : MonoBehaviour
             rb.velocity = movement * fullSpeed * 1.0f;
         }
         else {
-            rb.velocity = movement * baseSpeed * 1.0f;
+            rb.velocity = movement * stats.baseSpeed * 1.0f;
         }
     }
 }

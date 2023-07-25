@@ -10,6 +10,6 @@ public class TextValueLevel : MonoBehaviour
 
     void Update()
     {
-        text.text = player.level.ToString();
+        text.text = player.stats.level.ToString();
     }
 }

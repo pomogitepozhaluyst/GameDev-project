@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            player.currentExp += exp;
+            player.stats.currentExp += exp;
             Destroy(gameObject);
         }
     }

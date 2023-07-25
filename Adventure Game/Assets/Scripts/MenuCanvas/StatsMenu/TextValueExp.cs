@@ -10,7 +10,7 @@ public class TextValueExp : MonoBehaviour
 
     void Update()
     {
-        text.text = player.currentExp.ToString()+'/'+ player.needToNextLevelExp.ToString();
+        text.text = player.stats.currentExp.ToString()+'/'+ player.stats.needToNextLevelExp.ToString();
     }
 
 

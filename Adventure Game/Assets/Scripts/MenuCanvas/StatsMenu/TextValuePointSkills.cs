@@ -10,7 +10,7 @@ public class TextValuePointSkills : MonoBehaviour
 
     void Update()
     {
-        text.text = player.pointSkills.ToString();
+        text.text = player.stats.pointSkills.ToString();
     }
 
 }

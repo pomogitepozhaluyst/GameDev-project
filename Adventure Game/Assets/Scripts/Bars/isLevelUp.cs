@@ -22,7 +22,7 @@ public class isLevelUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.pointSkills == 0)
+        if (player.stats.pointSkills == 0)
         {
             signPointSkills.SetActive(false);
         }
